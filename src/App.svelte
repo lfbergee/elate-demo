@@ -15,13 +15,6 @@
     place-items: center;
   }
 
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
   video {
     position: fixed;
     top: 0;
@@ -38,19 +31,24 @@
     max-width: 100%;
     display: grid;
     place-items: center;
+    translate: 250ms ease-in-out transform;
   }
 
   .first-page {
     place-items: end;
   }
 
+  .second-page {
+    transform: translateY(-60vh);
+  }
+
   img {
-    max-width: 80vh;
+    max-width: 80vw;
   }
 
   .lead {
     color: #fff;
-    font-size: 7rem;
+    font-size: 5rem;
     margin: 20px;
     max-width: 700px;
     z-index: 1;
@@ -76,7 +74,7 @@
   .body {
     z-index: 1;
     color: #fff;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 20px;
     max-width: 700px;
   }
@@ -99,6 +97,43 @@
   .logo--center {
     transform: translate(0, 0) scale(1);
   }
+
+  .burger {
+    height: 2px;
+    width: 40px;
+    z-index: 1;
+    background: white;
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    transition: 250ms ease-in-out opacity;
+  }
+
+  .burger::after,
+  .burger::before {
+    position: absolute;
+    content: "";
+    background: white;
+    width: 100%;
+    height: 2px;
+    left: 0;
+  }
+
+  .burger::before {
+    top: -10px;
+  }
+
+  .burger::after {
+    top: 10px;
+  }
+
+  .burger--show {
+    opacity: 1;
+  }
+
+  .burger--hide {
+    opacity: 0;
+  }
 </style>
 
 <video loop autoplay muted id="bg">
@@ -106,20 +141,19 @@
   Your browser does not support the video tag.
 </video>
 <main class="content">
-  <section class="page first-page">
-    <p style="color: white; font-size: 4rem">Hotlink - Hotlink</p>
-  </section>
+  <section class="page first-page" />
 
-  <Intersecting let:intersecting top={-200} bottom={-200}>
+  <Intersecting let:intersecting top={-100} bottom={-200}>
     <div class="logo-container">
       <img
         src="./logo.png"
         alt="elate logo"
         class={`logo ${intersecting ? 'logo--top' : 'logo--center'}`} />
     </div>
+    <span class={`burger ${intersecting ? 'burger--show' : 'burger--hide'}`} />
     <aside
       class={`backdrop ${intersecting ? 'backdrop--show' : 'backdrop--hide'}`} />
-    <section class="page">
+    <section class={`page ${intersecting ? 'second-page' : ''}`}>
       <p class="lead">Elate er seniorkonsulenter</p>
     </section>
 

@@ -1,10 +1,21 @@
 <script>
-  import { onMount } from "svelte";
   import Intersecting from "./Intersecting.svelte";
+  import HALO from "vanta/dist/vanta.halo.min";
+  import { onMount } from "svelte";
 
   onMount(() => {
-    const vid = document.getElementById("bg");
-    vid.playbackRate = 0.5;
+    HALO({
+      el: "#bg",
+      color: 0x000000,
+      waveHeight: 10,
+      shininess: 20,
+      waveSpeed: 0.1,
+      size: 0.55,
+      amplitudeFactor: 0.6,
+      backgroundColor: 0x144050,
+      mouseControls: false,
+      touchControls: false
+    });
   });
 </script>
 
@@ -13,17 +24,7 @@
     position: relative;
     display: grid;
     place-items: center;
-  }
-
-  video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+    background: white;
   }
 
   .page {
@@ -31,89 +32,50 @@
     max-width: 100%;
     display: grid;
     place-items: center;
-    translate: 250ms ease-in-out transform;
-  }
-
-  .first-page {
-    place-items: end;
-  }
-
-  .second-page {
-    transform: translateY(-60vh);
-  }
-
-  img {
-    max-width: 80vw;
   }
 
   .lead {
-    color: #fff;
+    color: rgb(51, 52, 53);
     font-size: 5rem;
     margin: 20px;
     max-width: 700px;
     z-index: 1;
   }
 
-  .backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    transition: 500ms ease-in-out opacity;
-  }
-
-  .backdrop--show {
-    opacity: 1;
-  }
-  .backdrop--hide {
-    opacity: 0;
-  }
-
   .body {
     z-index: 1;
-    color: #fff;
+    color: rgb(51, 52, 53);
+
     font-size: 3rem;
     margin: 20px;
     max-width: 700px;
   }
 
   .logo {
-    position: fixed;
-    top: 0;
-    left: 0;
     transition: 250ms ease-in-out transform;
   }
 
   .logo-container {
     z-index: 2;
     width: 100%;
-  }
-
-  .logo--top {
-    transform: translate(-200px, -160px) scale(0.5);
-  }
-  .logo--center {
-    transform: translate(0, 0) scale(1);
+    height: 100%;
+    display: grid;
+    place-items: center;
   }
 
   .burger {
     height: 2px;
     width: 40px;
     z-index: 1;
-    background: white;
     position: fixed;
     top: 40px;
-    right: 20px;
-    transition: 250ms ease-in-out opacity;
+    right: 30px;
   }
 
   .burger::after,
   .burger::before {
     position: absolute;
     content: "";
-    background: white;
     width: 100%;
     height: 2px;
     left: 0;
@@ -127,35 +89,70 @@
     top: 10px;
   }
 
-  .burger--show {
+  .burger--dark,
+  .burger--dark::after,
+  .burger--dark::before {
+    background-color: rgb(51, 52, 53);
+  }
+
+  .burger--light,
+  .burger--light::after,
+  .burger--light::before {
+    background-color: white;
+  }
+
+  #bg {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .head-logo {
+    position: fixed;
+    z-index: 1;
+    top: 5px;
+    left: 10px;
+    height: 90px;
+    transition: 250ms ease-in-out opacity;
+  }
+
+  .head-logo--show {
     opacity: 1;
   }
 
-  .burger--hide {
+  .head-logo--hide {
     opacity: 0;
   }
 </style>
 
-<video loop autoplay muted id="bg">
-  <source src="./bg.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-<main class="content">
-  <section class="page first-page" />
-
-  <Intersecting let:intersecting top={-100} bottom={-200}>
+<main>
+  <div id="bg">
     <div class="logo-container">
-      <img
-        src="./logo.png"
-        alt="elate logo"
-        class={`logo ${intersecting ? 'logo--top' : 'logo--center'}`} />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-70 -28 650 650"
+        class="logo"
+        height="200"
+        width="200">
+        <path
+          vector-effect="non-scaling-stroke"
+          d="M251 0L0 145v289l251 145 250-145V241l-83 48v97l-167
+          96-167-96V193l167-97 83 49-167 96v97l84 48v-97l250-144L251 0"
+          fill="#40a67b"
+          stroke="#40a67b"
+          stroke-width="2" />
+      </svg>
+
     </div>
-    <span class={`burger ${intersecting ? 'burger--show' : 'burger--hide'}`} />
-    <aside
-      class={`backdrop ${intersecting ? 'backdrop--show' : 'backdrop--hide'}`} />
-    <section class={`page ${intersecting ? 'second-page' : ''}`}>
-      <p class="lead">Elate er seniorkonsulenter</p>
-    </section>
+  </div>
+  <section class="page">
+    <p class="lead">Elate er seniorkonsulenter</p>
+  </section>
+  <Intersecting let:intersecting top={0}>
+    <img
+      src="./elate.svg"
+      alt="elate logo"
+      class={`head-logo ${intersecting ? 'head-logo--show' : 'head-logo--hide'}`} />
+    <span class={`burger ${intersecting ? 'burger--dark' : 'burger--light'}`} />
 
     <section class="page">
       <p class="body">
@@ -173,18 +170,18 @@
         Da er du kanskje vår neste kollega!
       </p>
     </section>
-  </Intersecting>
 
-  <section class="page">
-    <p class="body">
-      Karl Johans Gate 1
-      <br />
-      0154 OSLO
-      <br />
-      <a href="tel:+4741327773">+47 413 27 773</a>
-      <br />
-      <a href="mailto:hei@elate.no">hei@elate.no</a>
-    </p>
-  </section>
+    <section class="page">
+      <p class="body">
+        Karl Johans Gate 1
+        <br />
+        0154 OSLO
+        <br />
+        <a href="tel:+4741327773">+47 413 27 773</a>
+        <br />
+        <a href="mailto:hei@elate.no">hei@elate.no</a>
+      </p>
+    </section>
+  </Intersecting>
 
 </main>

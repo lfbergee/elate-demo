@@ -1,5 +1,6 @@
 <script>
   import Intersecting from "./Intersecting.svelte";
+  import Burger from "./Burger.svelte";
   import NET from "vanta/dist/vanta.net.min";
   import { onMount } from "svelte";
 
@@ -8,8 +9,9 @@
 
   $: {
     if (net && y < 200) {
-      net.options.points = 10 - Math.floor(y / 50);
-      net.options.maxDistance = 20 - Math.floor(y / 50);
+      net.options.points = 10 - Math.floor(y / 10);
+      net.options.maxDistance = 20 - Math.floor(y / 20);
+      net.options.spacing = 10 + Math.floor(y / 10);
     }
   }
 
@@ -18,13 +20,13 @@
       el: "#bg",
       backgroundColor: 0x144050,
       color: 0xc74f73,
-      touchControls: true,
+      touchControls: false,
       gyroControls: true,
       points: 10.0,
       spacing: 12.0,
       maxDistance: 10,
       scale: 2.0,
-      scaleMobile: 1.0,
+      scaleMobile: 2.0,
       showDots: false
     });
   });
@@ -41,37 +43,6 @@
     height: 100%;
     display: grid;
     place-items: center;
-  }
-
-  .burger {
-    position: relative;
-    height: 2px;
-    width: 40px;
-    z-index: 1;
-    margin-right: 20px;
-  }
-
-  .burger::after,
-  .burger::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 2px;
-    left: 0;
-  }
-
-  .burger::before {
-    top: -10px;
-  }
-
-  .burger::after {
-    top: 10px;
-  }
-
-  .burger,
-  .burger::after,
-  .burger::before {
-    background-color: white;
   }
 
   #bg {
@@ -109,13 +80,12 @@
     opacity: 0;
   }
 
-  button {
-    background-color: transparent;
-    border: none;
-  }
   @media screen and (max-width: 992px) {
     nav {
       padding: 0;
+    }
+    #bg {
+      height: 60vh;
     }
   }
 </style>
@@ -127,9 +97,7 @@
       src="./elate.svg"
       alt="elate logo"
       class={`head-logo ${!intersecting ? 'head-logo--show' : 'head-logo--hide'}`} />
-    <button>
-      <div class="burger" />
-    </button>
+    <Burger />
   </nav>
   <div id="bg">
     <div class="logo-container">

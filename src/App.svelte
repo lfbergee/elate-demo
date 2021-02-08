@@ -37,10 +37,10 @@
       grid-template-columns: 1fr;
     }
     .lead {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     .body {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
   }
 </style>

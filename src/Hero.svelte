@@ -1,0 +1,152 @@
+<script>
+  import Intersecting from "./Intersecting.svelte";
+  import NET from "vanta/dist/vanta.net.min";
+  import { onMount } from "svelte";
+
+  let net;
+  let y;
+
+  $: {
+    if (net && y < 200) {
+      net.options.points = 10 - Math.floor(y / 50);
+      net.options.maxDistance = 20 - Math.floor(y / 50);
+    }
+  }
+
+  onMount(() => {
+    net = NET({
+      el: "#bg",
+      backgroundColor: 0x144050,
+      color: 0xc74f73,
+      touchControls: true,
+      gyroControls: true,
+      points: 10.0,
+      spacing: 12.0,
+      maxDistance: 10,
+      scale: 2.0,
+      scaleMobile: 1.0,
+      showDots: false
+    });
+  });
+</script>
+
+<style>
+  .logo {
+    transition: 250ms ease-in-out transform;
+  }
+
+  .logo-container {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .burger {
+    position: relative;
+    height: 2px;
+    width: 40px;
+    z-index: 1;
+    margin-right: 20px;
+  }
+
+  .burger::after,
+  .burger::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    left: 0;
+  }
+
+  .burger::before {
+    top: -10px;
+  }
+
+  .burger::after {
+    top: 10px;
+  }
+
+  .burger,
+  .burger::after,
+  .burger::before {
+    background-color: white;
+  }
+
+  #bg {
+    width: 100%;
+    height: 80vh;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    height: 90px;
+  }
+
+  .nav--show {
+    background-color: #144050;
+  }
+
+  .head-logo {
+    height: 90px;
+    transition: 250ms ease-in-out opacity;
+  }
+
+  .head-logo--show {
+    opacity: 1;
+  }
+
+  .head-logo--hide {
+    opacity: 0;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+  @media screen and (max-width: 992px) {
+    nav {
+      padding: 0;
+    }
+  }
+</style>
+
+<svelte:window bind:scrollY={y} />
+<Intersecting let:intersecting bottom={-90}>
+  <nav class={`${intersecting ? '' : 'nav--show'}`}>
+    <img
+      src="./elate.svg"
+      alt="elate logo"
+      class={`head-logo ${!intersecting ? 'head-logo--show' : 'head-logo--hide'}`} />
+    <button>
+      <div class="burger" />
+    </button>
+  </nav>
+  <div id="bg">
+    <div class="logo-container">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-70 -28 650 650"
+        class="logo"
+        height="200"
+        width="200">
+        <path
+          vector-effect="non-scaling-stroke"
+          d="M251 0L0 145v289l251 145 250-145V241l-83 48v97l-167
+          96-167-96V193l167-97 83 49-167 96v97l84 48v-97l250-144L251 0"
+          fill="#fff"
+          stroke="#fff"
+          stroke-width="2" />
+      </svg>
+    </div>
+  </div>
+</Intersecting>

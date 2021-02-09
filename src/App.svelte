@@ -1,5 +1,6 @@
 <script>
   import Hero from "./Hero.svelte";
+  import Card from "./components/Card.svelte";
 </script>
 
 <style>
@@ -18,28 +19,12 @@
     margin: 0 48px;
   }
 
-  .card {
-    color: rgb(51, 52, 53);
-    margin: 0;
-    max-width: 675px;
-    z-index: 1;
-    background-color: white;
-    padding: 48px;
-    border-radius: 16px;
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-  }
-
-  .lead,
   .body {
     z-index: 1;
     color: rgb(51, 52, 53);
     font-size: 2.5rem;
     max-width: 700px;
     margin-top: 0;
-  }
-  .lead {
-    font-size: 3.25rem;
   }
   .entry {
     position: relative;
@@ -51,19 +36,12 @@
     margin: 0 48px;
   }
   @media screen and (max-width: 992px) {
-    .card {
-      max-width: 535px;
-      padding: 24px 48px;
-    }
     .entry {
       margin: 0 24px;
       top: -15vh;
     }
     .page {
       grid-template-columns: 1fr;
-    }
-    .lead {
-      font-size: 2.5rem;
     }
     .body {
       font-size: 1.75rem;
@@ -75,12 +53,10 @@
   <Hero />
 
   <div class="entry">
-    <div class="card">
-      <p class="lead">Elate er senior&shy;konsulenter</p>
-      <p class="body">
-        Vi brenner for å styrke den teknologiske utviklingen i Norge
-      </p>
-    </div>
+    <Card title="Elate er senior&shy;konsulenter">
+      Vi brenner for å styrke den teknologiske utviklingen i Norge
+    </Card>
+
   </div>
 
   <section class="page">

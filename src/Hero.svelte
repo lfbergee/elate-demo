@@ -8,9 +8,9 @@
   let y;
 
   $: {
-    if (net && y < 200) {
-      net.options.points = 10 - Math.floor(y / 10);
-      net.options.maxDistance = 20 - Math.floor(y / 20);
+    if (net && y < 300) {
+      net.options.points = 20 - Math.floor(y / 10);
+      net.options.maxDistance = 30 - Math.floor(y / 20);
       net.options.spacing = 10 + Math.floor(y / 10);
     }
   }
@@ -25,8 +25,8 @@
       points: 10.0,
       spacing: 12.0,
       maxDistance: 10,
-      scale: 2.0,
-      scaleMobile: 2.0,
+      scale: 1,
+      scaleMobile: 1.0,
       showDots: false
     });
   });
@@ -85,7 +85,7 @@
       padding: 0;
     }
     #bg {
-      height: 60vh;
+      height: 75vh;
     }
   }
 </style>

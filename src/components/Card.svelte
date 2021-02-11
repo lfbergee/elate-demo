@@ -8,7 +8,6 @@
   div {
     color: rgb(51, 52, 53);
     margin: 0;
-    max-width: 675px;
     z-index: 1;
     background-color: white;
     padding: 48px;
@@ -19,7 +18,6 @@
 
   @media screen and (max-width: 992px) {
     div {
-      max-width: 535px;
       padding: 24px 48px;
     }
   }

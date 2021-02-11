@@ -1,6 +1,7 @@
 <script>
-  import Hero from "./Hero.svelte";
+  import Hero from "./components/Hero.svelte";
   import Card from "./components/Card.svelte";
+  import ContactCard from "./components/ContactCard.svelte";
 </script>
 
 <style>
@@ -11,21 +12,6 @@
     background: white;
   }
 
-  .page {
-    height: 100vh;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 0 48px;
-  }
-
-  .body {
-    z-index: 1;
-    color: rgb(51, 52, 53);
-    font-size: 2.5rem;
-    max-width: 700px;
-    margin-top: 0;
-  }
   .entry {
     position: relative;
     top: -148px;
@@ -35,57 +21,58 @@
     max-width: 1200px;
     margin: 0 48px;
   }
+
+  .contact-section {
+    background: rgb(29, 29, 29);
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+
+  button {
+    font-size: 1.25rem;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+  }
+
+  button:first-of-type {
+    background-color: #144050;
+  }
+
+  button:last-of-type {
+    background-color: #c74f73;
+  }
+
   @media screen and (max-width: 992px) {
     .entry {
       margin: 0 24px;
       top: -15vh;
-    }
-    .page {
-      grid-template-columns: 1fr;
-    }
-    .body {
-      font-size: 1.75rem;
     }
   }
 </style>
 
 <main>
   <Hero />
-
   <div class="entry">
     <Card title="Elate er senior&shy;konsulenter">
       Vi brenner for å styrke den teknologiske utviklingen i Norge
+      <div class="button-group">
+        <button>Trenger du konsulenter?</button>
+        <button>Er du vår nye kollega?</button>
+      </div>
     </Card>
-
   </div>
-
-  <section class="page">
-    <p class="body">
-      Uavhengig av teknologiske utfordringer du og ditt team står ovenfor kan vi
-      hjelpe dere med å lage en plan - og gjøre den til virkelighet
-    </p>
+  <section class="contact-section">
+    <ContactCard />
   </section>
-
-  <section class="page">
-    <p class="body">
-      Er du dyktig på fagfeltet ditt, liker å bidra til å gjøre hele teamet
-      bedre?
-      <br />
-      <br />
-      Da er du kanskje vår neste kollega!
-    </p>
-  </section>
-
-  <section class="page">
-    <p class="body">
-      Karl Johans Gate 1
-      <br />
-      0154 OSLO
-      <br />
-      <a href="tel:+4741327773">+47 413 27 773</a>
-      <br />
-      <a href="mailto:hei@elate.no">hei@elate.no</a>
-    </p>
-  </section>
-
 </main>

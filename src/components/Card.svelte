@@ -18,7 +18,7 @@
 
   @media screen and (max-width: 992px) {
     div {
-      padding: 24px 48px;
+      padding: 24px;
     }
   }
 </style>

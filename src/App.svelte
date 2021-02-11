@@ -55,7 +55,7 @@
 
   @media screen and (max-width: 992px) {
     .entry {
-      margin: 0 24px;
+      margin: 0 12px;
       top: -15vh;
     }
   }

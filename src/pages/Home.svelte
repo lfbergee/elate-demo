@@ -3,6 +3,11 @@
   import Card from "../components/Card.svelte";
   import ContactCard from "../components/ContactCard.svelte";
   import { links } from "svelte-routing";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    window.scrollTo(0, 0);
+  });
 </script>
 
 <style>
@@ -47,11 +52,11 @@
   }
 
   .btn:first-of-type {
-    background-color: #144050;
+    background-color: var(--color-blue);
   }
 
   .btn:last-of-type {
-    background-color: #c74f73;
+    background-color: var(--color-pink);
   }
 
   @media screen and (max-width: 992px) {

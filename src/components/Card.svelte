@@ -14,6 +14,7 @@
     border-radius: 16px;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
+    width: 100%;
   }
 
   @media screen and (max-width: 992px) {

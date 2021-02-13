@@ -1,3 +1,8 @@
+:root {
+  --color-pink: #c74f73;
+  --color-blue: #144050;
+}
+
 html,
 body {
   position: relative;

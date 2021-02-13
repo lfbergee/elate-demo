@@ -1,3 +1,13 @@
+<script>
+    import Nav from "../components/Nav.svelte";
+
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        window.scrollTo(0, 0);
+    });
+</script>
+
 <style>
     .clip-it {
         clip-path: url(#svgTextPath);
@@ -6,8 +16,13 @@
     section {
         display: grid;
         place-items: center;
+        margin-top: 90px;
+        background-color: var(--color-blue);
+        height: 100%;
     }
 </style>
+
+<Nav intersecting={false} />
 
 <section>
     <img src="/img.webp" class="clip-it" alt="" />

@@ -1,5 +1,6 @@
 <script>
   let isOpen = false;
+  import { links } from "svelte-routing";
 
   const handleClick = () => {
     isOpen = !isOpen;
@@ -78,7 +79,7 @@
     right: 0;
     bottom: 0;
     overflow-y: scroll;
-    background-color: #144050;
+    background-color: var(--color-blue);
     margin: 0;
     padding: 0;
     padding-top: 114px;
@@ -99,12 +100,15 @@
     padding-bottom: 20px;
     padding-left: 24px;
   }
+  a {
+    color: #fff;
+  }
 </style>
 
 <button on:click={handleClick}>
   <div class={`burger burger--${isOpen ? 'close' : ''}`} />
 </button>
-<ul class={`mega-menu--${isOpen ? 'show' : 'hidden'}`}>
-  <li>Rekrutering</li>
-  <li>Kontakt oss</li>
+<ul class={`mega-menu--${isOpen ? 'show' : 'hidden'}`} use:links>
+  <li><a href="/salg">Om oss</a></li>
+  <li><a href="/konsulent">Rekrutering</a></li>
 </ul>

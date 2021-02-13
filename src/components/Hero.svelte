@@ -1,9 +1,9 @@
 <script>
   import Intersecting from "../utils/Intersecting.svelte";
-  import Burger from "./Burger.svelte";
   import Logo from "./Logo.svelte";
   import NET from "vanta/dist/vanta.net.min";
   import { onMount } from "svelte";
+  import Nav from "./Nav.svelte";
 
   let net;
   let y;
@@ -50,42 +50,7 @@
     width: 100%;
     height: 80vh;
   }
-
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    height: 90px;
-    transition: 125ms ease-in-out background-color;
-  }
-
-  .nav--show {
-    background-color: #144050;
-  }
-
-  .head-logo {
-    height: 90px;
-    transition: 250ms ease-in-out opacity;
-  }
-
-  .head-logo--show {
-    opacity: 1;
-  }
-
-  .head-logo--hide {
-    opacity: 0;
-  }
-
   @media screen and (max-width: 992px) {
-    nav {
-      padding: 0;
-    }
     #bg {
       height: 75vh;
     }
@@ -94,13 +59,7 @@
 
 <svelte:window bind:scrollY={y} />
 <Intersecting let:intersecting bottom={-300}>
-  <nav class={`${intersecting ? '' : 'nav--show'}`}>
-    <img
-      src="./elate.svg"
-      alt="elate logo"
-      class={`head-logo ${!intersecting ? 'head-logo--show' : 'head-logo--hide'}`} />
-    <Burger />
-  </nav>
+  <Nav {intersecting} />
   <div id="bg">
     <div class="logo-container">
       <Logo />

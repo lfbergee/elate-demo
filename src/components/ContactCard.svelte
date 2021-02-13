@@ -8,7 +8,7 @@
     }
 
     div {
-        background: #144050;
+        background: var(--color-blue);
         position: absolute;
         top: 6px;
         left: 6px;
@@ -26,7 +26,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(-45deg, #144050, #c74f73);
+        background: linear-gradient(-45deg, var(--color-blue), var(--color-pink));
         z-index: -1;
         transition: 125ms ease-in-out transform;
     }

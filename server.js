@@ -1,6 +1,6 @@
 const path = require("path");
 const express = require("express");
-const app = require("./public/app.js");
+const app = require("./public/build/App.js");
 
 const server = express();
 
@@ -20,7 +20,6 @@ server.get("*", function (req, res) {
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="stylesheet" href="/bundle.css" />
     <link rel="stylesheet" href="/build/bundle.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link

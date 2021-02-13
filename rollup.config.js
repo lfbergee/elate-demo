@@ -64,7 +64,7 @@ export default [
       sourcemap: false,
       format: "cjs",
       name: "app",
-      file: "public/App.js",
+      file: "public/build/App.js",
     },
     plugins: [
       svelte({
@@ -72,7 +72,7 @@ export default [
           generate: "ssr",
         },
       }),
-      css({ output: "bundle.css" }),
+      css(),
       resolve(),
       commonjs(),
       production && terser(),

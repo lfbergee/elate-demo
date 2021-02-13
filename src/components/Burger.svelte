@@ -111,4 +111,5 @@
 <ul class={`mega-menu--${isOpen ? 'show' : 'hidden'}`} use:links>
   <li><a href="/salg">Om oss</a></li>
   <li><a href="/konsulent">Rekrutering</a></li>
+  <li><a href="/">Hjem</a></li>
 </ul>

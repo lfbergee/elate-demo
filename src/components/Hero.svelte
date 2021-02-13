@@ -34,9 +34,7 @@
 </script>
 
 <style>
-  .logo {
-    transition: 250ms ease-in-out transform;
-  }
+  
 
   .logo-container {
     z-index: 2;

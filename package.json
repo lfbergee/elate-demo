@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "validate": "svelte-check",
-    "start": "run-p build serve",
+    "start": "node server.js",
     "dev": "run-p watch server",
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "server": "nodemon server.js --watch server.js --watch public/App.js",
-    "serve": "node server.js"
+    "server": "nodemon server.js --watch server.js --watch public/App.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

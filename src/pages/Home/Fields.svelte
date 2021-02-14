@@ -61,7 +61,11 @@
         }
         .content {
             margin-top: 48px;
-            margin-right: 0;
+            margin-left: 0;
+        }
+
+        img {
+            max-width: 300px;
         }
     }
 </style>

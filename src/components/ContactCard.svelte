@@ -1,10 +1,15 @@
 <style>
     address {
         position: relative;
-        width: 400px;
-        height: 250px;
+        width: 500px;
+        height: 275px;
         z-index: 1;
         font-size: 1.75rem;
+        line-height: 2.5rem;
+    }
+
+    a {
+        color: #fff;
     }
 
     div {
@@ -26,7 +31,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(-45deg, var(--color-blue), var(--color-pink));
+        background: linear-gradient(
+            -45deg,
+            var(--color-blue),
+            var(--color-pink)
+        );
         z-index: -1;
         transition: 125ms ease-in-out transform;
     }

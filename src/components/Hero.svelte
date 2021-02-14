@@ -11,10 +11,13 @@
 
   let startPoints = 0;
   let startMaxDistance = 0;
+  const hasWindow = () => typeof window !== "undefined";
 
   onMount(() => {
-    startPoints = window.innerWidth > 992 ? 25 : 15;
-    startMaxDistance = window.innerWidth > 992 ? 35 : 25;
+    if (hasWindow) {
+      startPoints = window.innerWidth > 992 ? 25 : 15;
+      startMaxDistance = window.innerWidth > 992 ? 35 : 25;
+    }
     net = NET({
       el: "#bg",
       backgroundColor: 0x144050,

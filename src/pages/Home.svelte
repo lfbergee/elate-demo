@@ -4,6 +4,9 @@
   import ContactCard from "../components/ContactCard.svelte";
   import { links } from "svelte-routing";
   import { onMount } from "svelte";
+  import Freedom from "./Home/Freedom.svelte";
+  import Fields from "./Home/Fields.svelte";
+  import Previous from "./Home/Previous.svelte";
 
   onMount(() => {
     window.scrollTo(0, 0);
@@ -83,7 +86,9 @@
       </div>
     </Card>
   </div>
-
+  <Freedom />
+  <Fields />
+  <Previous />
   <section class="contact-section">
     <ContactCard />
   </section>

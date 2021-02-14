@@ -114,10 +114,14 @@
     <li><a href="/">Hjem</a></li>
   {/if}
   {#if location.pathname !== '/salg'}
-    <li><a href="/salg">Om oss</a></li>
+    <li><a href="/salg">Kontakt oss</a></li>
   {/if}
 
   {#if location.pathname !== '/konsulent'}
     <li><a href="/konsulent">Rekrutering</a></li>
+  {/if}
+
+  {#if location.pathname !== '/oss'}
+    <li><a href="/oss">Våre konsulenter</a></li>
   {/if}
 </ul>

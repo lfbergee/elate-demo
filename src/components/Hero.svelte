@@ -4,14 +4,18 @@
   import NET from "vanta/dist/vanta.net.min";
   import { onMount } from "svelte";
   import Nav from "./Nav.svelte";
+  export let showHome;
 
   let net;
   let y;
 
+  const startPoints = window.innerWidth > 992 ? 25 : 15;
+  const startMaxDistance = window.innerWidth > 992 ? 35 : 25;
+
   $: {
     if (net && y < 300) {
-      net.options.points = 20 - Math.floor(y / 10);
-      net.options.maxDistance = 30 - Math.floor(y / 20);
+      net.options.points = startPoints - Math.floor(y / 10);
+      net.options.maxDistance = startMaxDistance - Math.floor(y / 20);
       net.options.spacing = 10 + Math.floor(y / 10);
     }
   }
@@ -34,8 +38,6 @@
 </script>
 
 <style>
-  
-
   .logo-container {
     z-index: 2;
     width: 100%;
@@ -45,7 +47,6 @@
   }
 
   #bg {
-    width: 100%;
     height: 80vh;
   }
   @media screen and (max-width: 992px) {
@@ -57,7 +58,7 @@
 
 <svelte:window bind:scrollY={y} />
 <Intersecting let:intersecting bottom={-300}>
-  <Nav {intersecting} />
+  <Nav {intersecting} {showHome} />
   <div id="bg">
     <div class="logo-container">
       <Logo />

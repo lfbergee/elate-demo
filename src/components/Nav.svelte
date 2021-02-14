@@ -2,6 +2,7 @@
     import { link } from "svelte-routing";
     import Burger from "./Burger.svelte";
     export let intersecting;
+    export let showHome;
 </script>
 
 <style>
@@ -50,5 +51,5 @@
             alt="elate logo"
             class={`head-logo ${!intersecting ? 'head-logo--show' : 'head-logo--hide'}`} />
     </a>
-    <Burger />
+    <Burger {showHome} />
 </nav>

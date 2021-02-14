@@ -39,8 +39,8 @@
   .button-group {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 48px;
     flex-wrap: wrap;
+    margin-top: 24px;
   }
 
   .btn {
@@ -48,7 +48,12 @@
     color: #fff;
     border: none;
     border-radius: 4px;
+    margin-top: 24px;
     padding: 12px 24px;
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
   }
 
   .btn:first-of-type {
@@ -68,15 +73,13 @@
 </style>
 
 <main>
-  <Hero />
+  <Hero showHome={false} />
   <div class="entry">
     <Card title="Elate er senior&shy;konsulenter">
       Vi brenner for å styrke den teknologiske utviklingen i Norge
-      <div class="button-group">
-        <div use:links>
-          <a class="btn" href="/salg">Trenger du konsulenter?</a>
-          <a class="btn" href="/konsulent">Er du vår nye kollega?</a>
-        </div>
+      <div use:links class="button-group">
+        <a class="btn" href="/salg">Trenger du konsulenter?</a>
+        <a class="btn" href="/konsulent">Er du vår nye kollega?</a>
       </div>
     </Card>
   </div>

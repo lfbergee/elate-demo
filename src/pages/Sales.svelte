@@ -12,11 +12,18 @@
 <style>
     section {
         margin-top: 90px;
+        padding: 24px 48px;
     }
     div {
         width: 100%;
         display: grid;
         place-items: center;
+    }
+
+    @media screen and (max-width: 992px) {
+        section {
+            padding: 24px 12px;
+        }
     }
 </style>
 

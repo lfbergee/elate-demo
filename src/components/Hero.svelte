@@ -4,7 +4,6 @@
   import NET from "vanta/dist/vanta.net.min";
   import { onMount } from "svelte";
   import Nav from "./Nav.svelte";
-  export let location;
 
   let net;
   let y;
@@ -63,7 +62,7 @@
 
 <svelte:window bind:scrollY={y} />
 <Intersecting let:intersecting bottom={-300}>
-  <Nav {intersecting} {location} />
+  <Nav {intersecting} />
   <div id="bg">
     <div class="logo-container">
       <Logo />

@@ -1,7 +1,6 @@
 <script>
     import Nav from "../components/Nav.svelte";
     import { onMount } from "svelte";
-    export let location;
 
     onMount(() => {
         window.scrollTo(0, 0);
@@ -22,7 +21,7 @@
     }
 </style>
 
-<Nav intersecting={false} {location} />
+<Nav intersecting={false} />
 
 <section>
     <img src="/img.webp" class="clip-it" alt="" />

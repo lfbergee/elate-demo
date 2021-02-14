@@ -8,8 +8,6 @@
   import Fields from "./Home/Fields.svelte";
   import Previous from "./Home/Previous.svelte";
 
-  const location = { pathname: "/" };
-
   onMount(() => {
     window.scrollTo(0, 0);
   });
@@ -78,7 +76,7 @@
 </style>
 
 <main>
-  <Hero {location} />
+  <Hero />
   <div class="entry">
     <Card title="Elate er senior&shy;konsulenter">
       Vi brenner for å styrke den teknologiske utviklingen i Norge

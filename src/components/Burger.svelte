@@ -1,7 +1,6 @@
 <script>
   let isOpen = false;
   import { links } from "svelte-routing";
-  export let location;
 
   const handleClick = () => {
     isOpen = !isOpen;
@@ -17,6 +16,7 @@
     margin-right: 20px;
     background-color: white;
     transition: 125ms ease-in-out background-color;
+    display: none;
   }
 
   .burger::after,
@@ -61,7 +61,7 @@
   }
 
   .mega-menu--hidden {
-    display: none;
+    display: flex;
   }
 
   @keyframes appear {
@@ -72,7 +72,9 @@
   }
 
   .mega-menu--show {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -84,7 +86,6 @@
     margin: 0;
     padding: 0;
     padding-top: 114px;
-
     opacity: 0;
     transform: translateY(-100px);
     animation: appear;
@@ -95,14 +96,36 @@
   ul {
     list-style: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
   li {
-    padding-bottom: 20px;
-    padding-left: 24px;
+    padding-right: 48px;
   }
   a {
     color: #fff;
+  }
+  .home-link {
+    display: none;
+  }
+  @media screen and (max-width: 992px) {
+    ul {
+      font-size: 1.75rem;
+    }
+    li {
+      padding-bottom: 20px;
+      padding-right: 24px;
+    }
+
+    .mega-menu--hidden {
+      display: none;
+    }
+
+    .burger {
+      display: block;
+    }
+    .home-link {
+      display: initial;
+    }
   }
 </style>
 
@@ -110,18 +133,8 @@
   <div class={`burger burger--${isOpen ? 'close' : ''}`} />
 </button>
 <ul class={`mega-menu--${isOpen ? 'show' : 'hidden'}`} use:links>
-  {#if location.pathname !== '/'}
-    <li><a href="/">Hjem</a></li>
-  {/if}
-  {#if location.pathname !== '/salg'}
-    <li><a href="/salg">Kontakt oss</a></li>
-  {/if}
-
-  {#if location.pathname !== '/konsulent'}
-    <li><a href="/konsulent">Rekrutering</a></li>
-  {/if}
-
-  {#if location.pathname !== '/oss'}
-    <li><a href="/oss">Våre konsulenter</a></li>
-  {/if}
+  <li class="home-link"><a href="/">Hjem</a></li>
+  <li><a on:click={handleClick} href="/salg">Kontakt oss</a></li>
+  <li><a on:click={handleClick} href="/konsulent">Rekrutering</a></li>
+  <li><a on:click={handleClick} href="/oss">Våre konsulenter</a></li>
 </ul>

@@ -9,18 +9,12 @@
   let net;
   let y;
 
-  const startPoints = window.innerWidth > 992 ? 25 : 15;
-  const startMaxDistance = window.innerWidth > 992 ? 35 : 25;
-
-  $: {
-    if (net && y < 300) {
-      net.options.points = startPoints - Math.floor(y / 10);
-      net.options.maxDistance = startMaxDistance - Math.floor(y / 20);
-      net.options.spacing = 10 + Math.floor(y / 10);
-    }
-  }
+  let startPoints = 0;
+  let startMaxDistance = 0;
 
   onMount(() => {
+    startPoints = window.innerWidth > 992 ? 25 : 15;
+    startMaxDistance = window.innerWidth > 992 ? 35 : 25;
     net = NET({
       el: "#bg",
       backgroundColor: 0x144050,
@@ -35,6 +29,14 @@
       showDots: false,
     });
   });
+
+  $: {
+    if (net && y < 300) {
+      net.options.points = startPoints - Math.floor(y / 10);
+      net.options.maxDistance = startMaxDistance - Math.floor(y / 20);
+      net.options.spacing = 10 + Math.floor(y / 10);
+    }
+  }
 </script>
 
 <style>

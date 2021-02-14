@@ -3,6 +3,7 @@
     import Nav from "../components/Nav.svelte";
     import Body from "../typography/Body.svelte";
     import { onMount } from "svelte";
+    export let location;
 
     onMount(() => {
         window.scrollTo(0, 0);
@@ -27,7 +28,7 @@
     }
 </style>
 
-<Nav intersecting={false} />
+<Nav intersecting={false} {location} />
 <section>
     <Body>
         Elate er et konsulentselskap i Oslo, bestående av seniorkonsulenter

@@ -1,7 +1,7 @@
 <script>
   let isOpen = false;
   import { links } from "svelte-routing";
-  export let showHome = true;
+  export let location;
 
   const handleClick = () => {
     isOpen = !isOpen;
@@ -110,9 +110,14 @@
   <div class={`burger burger--${isOpen ? 'close' : ''}`} />
 </button>
 <ul class={`mega-menu--${isOpen ? 'show' : 'hidden'}`} use:links>
-  {#if showHome}
+  {#if location.pathname !== '/'}
     <li><a href="/">Hjem</a></li>
   {/if}
-  <li><a href="/salg">Om oss</a></li>
-  <li><a href="/konsulent">Rekrutering</a></li>
+  {#if location.pathname !== '/salg'}
+    <li><a href="/salg">Om oss</a></li>
+  {/if}
+
+  {#if location.pathname !== '/konsulent'}
+    <li><a href="/konsulent">Rekrutering</a></li>
+  {/if}
 </ul>

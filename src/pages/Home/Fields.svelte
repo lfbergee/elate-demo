@@ -64,6 +64,7 @@
             margin-left: 0;
         }
 
+        .img-bg,
         img {
             max-width: 300px;
         }
@@ -73,10 +74,11 @@
 <section>
     <article>
         <div class="content">
-            <Lead><span>Vi er spesialister</span></Lead>
+            <Lead><span>Vi er ydmyke spesialister</span></Lead>
             <Body>
                 <span>
-                    Vi er spesialister på kompliserte utfordringer, det kan være
+                    Vi er ikke så glade i å skryte av oss selv. Det sagt, så er
+                    vi spesialister på kompliserte utfordringer, det kan være
                     helt nye prosjekter eller produkter med lang historie.
                     Konsulentene våre er innen fagfeltene prosjektledelse,
                     produkteiere, frontend- og backend-utvikling.

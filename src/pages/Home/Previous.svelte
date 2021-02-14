@@ -46,7 +46,7 @@
 
 <section>
     <article>
-        <Lead><span>Våre oppdrag</span></Lead>
+        <Lead><span>Noen av våre oppdrag</span></Lead>
         <div>
             <img src="/nrk.svg" alt="nrk" />
             <img src="/vipps.svg" alt="vipps" />
@@ -56,6 +56,9 @@
             <img src="/dnb.png" alt="dnb" />
             <img src="/nt.jpg" alt="norsk tipping" />
             <img src="/politiet.png" alt="politiet" />
+            <img src="/ruter.png" alt="ruter" />
+            <img src="/norwegian.webp" alt="norwegian" />
+            <img src="/skatt.jpg" alt="skatteetaten" />
         </div>
     </article>
 </section>

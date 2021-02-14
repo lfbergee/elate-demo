@@ -7,6 +7,7 @@
 <style>
     img {
         max-width: 400px;
+        width: 100%;
         border-radius: 16px;
     }
 
@@ -21,6 +22,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
+        max-width: 400px;
         width: 100%;
         background-color: var(--color-pink);
         transform: rotate(-6deg);
@@ -56,6 +58,7 @@
             margin-top: 48px;
             margin-right: 0;
         }
+        .img-bg,
         img {
             max-width: 300px;
         }

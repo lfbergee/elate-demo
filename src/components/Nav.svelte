@@ -8,7 +8,7 @@
 <style>
     nav {
         position: fixed;
-        top: 0;
+        top: -1;
         left: 0;
         right: 0;
         z-index: 10;
@@ -16,7 +16,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 24px;
-        height: 90px;
+        height: 91px;
         transition: 125ms ease-in-out background-color;
     }
 

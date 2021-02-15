@@ -78,7 +78,7 @@
     }
 </style>
 
-<section class={reversed ? 'reversed' : ''>
+<section class={reversed ? 'reversed' : ''}>
     <article>
         <div class="content">
             <slot />

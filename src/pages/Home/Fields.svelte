@@ -13,7 +13,7 @@
 </style>
 
 <span>
-    <Page src="/dog.jpg" alt="dog">
+    <Page src="/dog.jpg" alt="dog" reversed={true}>
         <Lead><span>Vi er ydmyke spesialister</span></Lead>
         <Body>
             <span>

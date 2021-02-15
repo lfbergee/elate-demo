@@ -1,6 +1,7 @@
 <script>
     export let src;
     export let alt;
+    export let reversed;
 </script>
 
 <style>
@@ -47,8 +48,20 @@
     .content {
         margin-right: 48px;
     }
+    
+    .reversed {
+        flex-direction: row-reverse;
+    }
+    
+    .reversed.content {
+        margin-right: 0;
+        margin-left: 48px;
+    }
 
     @media screen and (max-width: 992px) {
+        .reversed {
+            flex-direction: column-reverse;
+        }
         article {
             flex-direction: column-reverse;
             margin: 64px 0;
@@ -56,6 +69,7 @@
         .content {
             margin-top: 48px;
             margin-right: 0;
+            margin-left: 0;
         }
         .img-bg,
         img {
@@ -64,7 +78,7 @@
     }
 </style>
 
-<section>
+<section class={reversed ? 'reversed' : ''>
     <article>
         <div class="content">
             <slot />

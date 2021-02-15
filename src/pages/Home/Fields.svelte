@@ -8,6 +8,7 @@
     span {
         color: #fff;
         background-color: var(--color-blue);
+        width: 100%;
     }
 </style>
 

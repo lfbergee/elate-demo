@@ -53,7 +53,7 @@
         flex-direction: row-reverse;
     }
     
-    .reversed.content {
+    .reversed-content {
         margin-right: 0;
         margin-left: 48px;
     }
@@ -69,6 +69,8 @@
         .content {
             margin-top: 48px;
             margin-right: 0;
+        }
+        .reversed-content {
             margin-left: 0;
         }
         .img-bg,
@@ -80,7 +82,7 @@
 
 <section>
     <article class={reversed ? 'reversed' : ''}>
-        <div class="content">
+        <div class={`content ${reversed ? 'reversed-content' : ''}`}>
             <slot />
         </div>
         {#if src !== ''}
